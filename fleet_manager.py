@@ -1,10 +1,10 @@
 def init_database():
     names = ["Spock","Data","Jean-Luc Picard","James T.Kirk","Tuvok"]
-    ranks = ["First Officer","Operations Officer","Captain","Captain","Security"]
-    division = ["Science","Operations","Command","Command","Operations"]
+    ranks = ["Commander","Lt Commander","Captain","Captain","Lt Commander"]
+    divisions = ["Sciences","Operations","Command","Command","Operations"]
     ids = ["100","101","102","103","104"]
 
-    return names, ranks, division, ids
+    return names, ranks, divisions, ids
 
 def display_menu():
     user = input("Enter your full name: ")
@@ -21,3 +21,29 @@ def display_menu():
 
     choice = input("Select Option (1-9)")
     return choice
+
+def add_member(names, ranks, divisions, ids):
+    name = input("Enter your name: ")
+    rank = input("Enter your rank: ")
+    division = input("Enter your division: ")
+    crew_id = input("Enter your Id: ")
+    
+    if crew_id in ids:
+        print("This Id already in use")
+        return
+    valid_ranks = ["Captain","Commander","Lieutenant","Lt Commander","Ensign"]
+
+    if rank not in crew_id:
+        print("This rank is not a valid TNG rank")
+        return
+    names.append(name)
+    ranks.append(rank)
+    divisions.append(division)
+    ids.append(crew_id)
+
+    print("Crew member added")
+
+
+
+
+
