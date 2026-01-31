@@ -2,7 +2,7 @@ def init_database():
     names = ["Spock","Data","Jean-Luc Picard","James T.Kirk","Tuvok"]
     ranks = ["Commander","Lt Commander","Captain","Captain","Lt Commander"]
     divisions = ["Sciences","Operations","Command","Command","Operations"]
-    ids = ["100","101","102","103","104"]
+    ids = [100, 101, 102, 103, 104]
 
     return names, ranks, divisions, ids
 
@@ -59,6 +59,17 @@ def remove_member(names, ranks, divisions, ids):
 
     print("Crew member removed")
 
+def update_rank(names, ranks, ids):
+    crew_id = int(input("Enter Id to update members rank: "))
+    if crew_id not in ids:
+        print("This id is not in the database")
+        return
+    
+    index = ids.index(crew_id)
+    new_rank = input("Enter a rank: ")
+    ranks[index] = new_rank 
+    print(f" {names[index]} has been updated to {new_rank}")
+
 def main():
     names, ranks, divisions, ids = init_database()
     while True:
@@ -68,5 +79,7 @@ def main():
             add_member(names, ranks, divisions, ids)
         elif choice == "2": 
             remove_member(names, ranks, divisions, ids)
+        elif choice == "3":
+            update_rank(names, ranks,ids)
 main()
 
