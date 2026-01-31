@@ -19,7 +19,7 @@ def display_menu():
     print("8. Count Officers")
     print("9. Exit")
 
-    choice = input("Select Option (1-9)")
+    choice = input("Select Option (1-9): ")
     return choice
 
 def add_member(names, ranks, divisions, ids):
@@ -33,9 +33,10 @@ def add_member(names, ranks, divisions, ids):
         return
     valid_ranks = ["Captain","Commander","Lieutenant","Lt Commander","Ensign"]
 
-    if rank not in crew_id:
+    if rank not in valid_ranks:
         print("This rank is not a valid TNG rank")
         return
+    
     names.append(name)
     ranks.append(rank)
     divisions.append(division)
@@ -43,7 +44,29 @@ def add_member(names, ranks, divisions, ids):
 
     print("Crew member added")
 
+def remove_member(names, ranks, divisions, ids):
+    crew_id = int(input("Enter Crew Id to remove: ")) 
+    if crew_id not in ids:
+        print("This Id is not in the database")
+        return
+    
+    index = ids.index(crew_id)
 
+    names.pop(index)
+    ranks.pop(index)
+    divisions.pop(index)
+    ids.pop(index)
 
+    print("Crew member removed")
 
+def main():
+    names, ranks, divisions, ids = init_database()
+    while True:
+        choice = display_menu()
+
+        if choice == "1":
+            add_member(names, ranks, divisions, ids)
+        elif choice == "2": 
+            remove_member(names, ranks, divisions, ids)
+main()
 
