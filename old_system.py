@@ -59,7 +59,7 @@ def run_system_monolith():
                 if rank == "Captain" or "Commander": 
                     count = count + 1
             print("High ranking officers: " , count) 
-            
+        
         elif opt == "5":
             print("Shutting down.")
             break
@@ -88,6 +88,6 @@ def run_system_monolith():
             print("Idling...")
             break 
             
-        print("End of cycle.")
+        print("End of cycle.")             
 
 run_system_monolith()
