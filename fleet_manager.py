@@ -70,6 +70,13 @@ def update_rank(names, ranks, ids):
     ranks[index] = new_rank 
     print(f" {names[index]} has been updated to {new_rank}")
 
+def display_roster(names, ranks, divisions, ids):
+    print("Names               |Ranks               |Divisions           |Ids")
+    print("--------------------------------------------------------------------")
+    for i in range(len(names)):
+        print(f"{names[i]:<20}|{ranks[i]:<20}|{divisions[i]:<20}|{ids[i]:<6}")
+    
+
 def main():
     names, ranks, divisions, ids = init_database()
     while True:
@@ -81,5 +88,6 @@ def main():
             remove_member(names, ranks, divisions, ids)
         elif choice == "3":
             update_rank(names, ranks,ids)
+        elif choice == "4":
+            display_roster(names, ranks, divisions, ids)
 main()
-
