@@ -91,7 +91,16 @@ def filter_by_division(names, divisions):
     for i in range(len(names)):
         if divisions[i]== div:
             print(names[i])
-        
+
+def calculate_payroll(ranks):
+    payroll = {"Captain":1000, "Commander":800, "Lt Commander":600, "Lieutenant":400, "Ensign":200}
+    total = 0 
+    for rank in ranks: 
+        total += payroll.get(rank)
+    
+    return total
+
+    
     
 
 def main():
@@ -111,4 +120,7 @@ def main():
             search_crew(names, ranks, divisions, ids)
         elif choice == "6":
             filter_by_division(names, divisions)
+        elif choice == "7":
+            total = calculate_payroll(ranks)
+            print(total)
 main()
