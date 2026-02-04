@@ -75,6 +75,16 @@ def display_roster(names, ranks, divisions, ids):
     print("--------------------------------------------------------------------")
     for i in range(len(names)):
         print(f"{names[i]:<20}|{ranks[i]:<20}|{divisions[i]:<20}|{ids[i]:<6}")
+
+def search_crew(names, ranks, divisions, ids):
+    term = input("Enter a name to search: ")
+    for i in range(len(names)):
+        if term in names[i]:
+            print(f"{names[i]}, {ranks[i]}, {divisions[i]}, {ids[i]}")
+            break
+        elif term not in names:
+            print("Not found")
+            break
     
 
 def main():
@@ -90,4 +100,6 @@ def main():
             update_rank(names, ranks,ids)
         elif choice == "4":
             display_roster(names, ranks, divisions, ids)
+        elif choice == "5":
+            search_crew(names, ranks, divisions, ids)
 main()
