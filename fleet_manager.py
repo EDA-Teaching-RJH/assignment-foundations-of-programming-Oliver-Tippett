@@ -85,6 +85,13 @@ def search_crew(names, ranks, divisions, ids):
         elif term not in names:
             print("Not found")
             break
+
+def filter_by_division(names, divisions):
+    div = input("Enter a division, Command, Operations, or Sciences: ")
+    for i in range(len(names)):
+        if divisions[i]== div:
+            print(names[i])
+        
     
 
 def main():
@@ -102,4 +109,6 @@ def main():
             display_roster(names, ranks, divisions, ids)
         elif choice == "5":
             search_crew(names, ranks, divisions, ids)
+        elif choice == "6":
+            filter_by_division(names, divisions)
 main()
