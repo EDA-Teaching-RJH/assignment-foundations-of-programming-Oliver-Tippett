@@ -6,8 +6,8 @@ def init_database():
 
     return names, ranks, divisions, ids
 
-def display_menu():
-    user = input("Enter your full name: ")
+def display_menu(user):
+    
     print("Current student logged in is",user)
     print("1. Add Crew Member")
     print("2. Remove Crew Member")
@@ -26,7 +26,7 @@ def add_member(names, ranks, divisions, ids):
     name = input("Enter your name: ")
     rank = input("Enter your rank: ")
     division = input("Enter your division: ")
-    crew_id = input("Enter your Id: ")
+    crew_id = int(input("Enter your Id: "))
     
     if crew_id in ids:
         print("This Id already in use")
@@ -109,8 +109,9 @@ def count_officers(ranks):
 
 def main():
     names, ranks, divisions, ids = init_database()
+    user = input("Enter your full name: ")
     while True:
-        choice = display_menu()
+        choice = display_menu(user)
 
         if choice == "1":
             add_member(names, ranks, divisions, ids)
